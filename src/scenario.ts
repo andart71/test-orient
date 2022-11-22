@@ -45,6 +45,9 @@ export const handleNlpRequest = async (request: NLPRequest): Promise<NLPResponse
             }
         }
     }
+
+    /// @ts-ignore
+    res.message.payload.device?.capabilities.orientation = "landscape";
     
     const sessionId = request.uuid.userId
     const session = await storage.resolve(sessionId)
