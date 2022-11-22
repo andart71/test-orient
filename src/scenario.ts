@@ -35,6 +35,7 @@ export const handleNlpRequest = async (request: NLPRequest): Promise<NLPResponse
     const req = createSaluteRequest(request)
     const res = createSaluteResponse(request)
     /// @ts-ignore
+    /*
     res.payload.device.capabilities_state = {
         "screen": {
             "hdmi": {
@@ -44,6 +45,7 @@ export const handleNlpRequest = async (request: NLPRequest): Promise<NLPResponse
             }
         }
     }
+    */
     const sessionId = request.uuid.userId
     const session = await storage.resolve(sessionId)
     await scenarioWalker({ req, res, session })
