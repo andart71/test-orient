@@ -34,10 +34,20 @@ const storage = new SaluteMemoryStorage()
 export const handleNlpRequest = async (request: NLPRequest): Promise<NLPResponse> => {
     const req = createSaluteRequest(request)
     const res = createSaluteResponse(request)
+    /// @ts-ignore
+    res.payload.devices.capabilities_state = {
+        "screen": {
+            "hdmi": {
+                "connected": false,
+                "displayed": false,
+                "orientation": "landscape"
+            }
+        }
+    }
     const sessionId = request.uuid.userId
     const session = await storage.resolve(sessionId)
     await scenarioWalker({ req, res, session })
     await storage.save({ id: sessionId, session })
-    console.log(JSON.stringify(res.message))
+    console.log(JSON.stringify(res.message), '[RES]');
     return res.message
 }

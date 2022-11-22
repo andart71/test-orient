@@ -4,7 +4,6 @@ import * as dictionary from './system.i18n'
 //Хэндлер для RUN_APP
 export const runAppHandler: SaluteHandler = ({ res, req }) => {
     const keyset = req.i18n(dictionary)
-    res.appendBubble(keyset('start'))
     res.appendSuggestions(['Хватит'])
 }
 
