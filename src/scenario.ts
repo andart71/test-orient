@@ -35,7 +35,7 @@ export const handleNlpRequest = async (request: NLPRequest): Promise<NLPResponse
     const req = createSaluteRequest(request)
     const res = createSaluteResponse(request)
     /// @ts-ignore
-    res.payload.devices.capabilities_state = {
+    res.payload.device.capabilities_state = {
         "screen": {
             "hdmi": {
                 "connected": false,
