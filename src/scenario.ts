@@ -50,6 +50,6 @@ export const handleNlpRequest = async (request: NLPRequest): Promise<NLPResponse
     const session = await storage.resolve(sessionId)
     await scenarioWalker({ req, res, session })
     await storage.save({ id: sessionId, session })
-    console.log(JSON.stringify(res.message.payload.device), '[RES]');
+    console.log(JSON.stringify(res.message.payload), '[RES]');
     return res.message
 }
